@@ -16,8 +16,8 @@ class CrosswordSolver() {
   /**
     * Finds all the words from a given starting row and column position
     * @param crossword - The Crossword that we wish to solve.
-    * @param row - The starting row position Int for all the found words
-    * @param col - The starting column position Int for all the found words
+    * @param row - The starting row position for all the found words
+    * @param col - The starting column position for all the found words
     * @return - a List of String each of which is a found word
     */
 
@@ -26,28 +26,17 @@ class CrosswordSolver() {
     def findWords(prefix: String, position: crossword.Position, words: List[String]): List[String] ={
       val temp = (prefix+position.charAt)
 
-      // TODO: create a method in the trie to lookup the prefix
-      if (trie.findByPrefix(temp).length < 1){
-        //println(s"prefix not found $temp")
-        words
-      }
+      // TODO: use the trie more efficently to lookup the prefix
+      if (trie.findByPrefix(temp).length < 1) words
 
       else {
         dictionary.contains(temp) match {
-          case true => {
-            //println(s"found word: $temp")
-            //println(s"${position.legalNeighbors}")
-            temp::position.legalNeighbors.flatMap(x => findWords(temp, x, words))
-          }
-
-          case false => {
-            //println(s"word not found: $temp")
-            position.legalNeighbors.flatMap(x => findWords(temp, x, words))
-          }
+          case true => temp::position.legalNeighbors.flatMap(x => findWords(temp, x, words))
+          case false => position.legalNeighbors.flatMap(x => findWords(temp, x, words))
         }
       }
-
     }
+
     val position = crossword.Position.apply(row,col)
     findWords(new String,position,List.empty)
   }
@@ -55,10 +44,10 @@ class CrosswordSolver() {
   /**
     * Finds all the words from a given crossword
     * @param crossword - the crossword we wish to find all words
-    * @return - a List of String each of which is a found word
+    * @return - a IndexedSeq of List of String each of which is a found word
     */
 
-  def findAllWords(crossword: Crossword)={
+  def findAllWords(crossword: Crossword): IndexedSeq[List[String]]={
     for{row <- 0 until crossword.varargs.length
         col <- 0 until crossword.varargs(row).length
     } yield findWords(crossword,row,col)

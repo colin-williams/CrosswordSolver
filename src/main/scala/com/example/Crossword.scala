@@ -27,10 +27,7 @@ class Crossword(charArrs: Array[Char]*) {
 
     def legalNeighbors: List[Position] = neighbors.filter(x => x.isLegal)
 
-    def isLegal: Boolean = {
-      //println(s"isDefinedAt:$row && isDefinedAt:$col")
-      varargs.isDefinedAt(row) && varargs(row).isDefinedAt(col)
-    }
+    def isLegal: Boolean = varargs.isDefinedAt(row) && varargs(row).isDefinedAt(col)
 
     def charAt: Char = varargs(row)(col)
   }

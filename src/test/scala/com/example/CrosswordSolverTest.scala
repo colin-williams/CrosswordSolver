@@ -28,7 +28,7 @@ class CrosswordSolverTest extends FlatSpec with Matchers {
     wordlist.foreach(println)
     val crossword2 = new Crossword(Array('a','b','c'),Array('d','e','f'),Array('g','h','i'))
     val solver2 = new CrosswordSolver(crossword2)
-    val wordlist2 = solver.findwords(solver2.crosswd.Position.apply(1,2))
+    val wordlist2 = solver2.findwords(solver2.crosswd.Position.apply(1,2))
     wordlist2.foreach(println)
   }
 

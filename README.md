@@ -1,6 +1,6 @@
-## A Crossword Solver written in Scala as part of a programming exercise in leiu of a job interview. ##
+## A Crossword Solver written in Scala ##
 
-The problem description for the solver. Note that we are allowed to visit the same position multiple times unlike a regular crossword. Also we can move in any of 9 positions at anytime. However the program could be easily modified to accomidate different behaviors.
+As part of a programming exercise in leiu of a job interview. The problem description for the solver. Note that we are allowed to visit the same position multiple times unlike a regular crossword. Also we can move in any of 9 positions at anytime. However the program could be easily modified to accomidate different behaviors.
 
 Given a matrix similar to the one below I want you to find all possible words. You can assume you have a dictionary of known words to validate your words against. Once you pick a starting letter you can either loop on the same letter or any letter
 adjacent to it. 

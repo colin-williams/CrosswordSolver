@@ -1,19 +1,22 @@
-A Crossword Solver written in Scala as part of a programming exercise in leiu of a job interview.
+## A Crossword Solver written in Scala as part of a programming exercise in leiu of a job interview. ##
 
 The problem description for the solver. Note that we are allowed to visit the same position multiple times unlike a regular crossword. Also we can move in any of 9 positions at anytime. However the program could be easily modified to accomidate different behaviors.
 
 Given a matrix similar to the one below I want you to find all possible words. You can assume you have a dictionary of known words to validate your words against. Once you pick a starting letter you can either loop on the same letter or any letter
 adjacent to it. 
 
+```
 | A G O I C|
 | D E R U F|
 | M P N B H|
 | S T E F W|
+```
 
 A modified american - english system dictionary is provided in the resources. Single letter entries were removed because the dictionary used the single letters as index start markers. This means that "I" and "A" aren't included, but if I were to clean the dictionary this filtering wouldn't be necessevary.
 
-Below is a set of Lists with each entry corresponding to a position on a board.
+Below is a set of Lists with each entry corresponding to a position on a board, the solution to the provided crossword.
 
+```
 List(ag, ago, agog, age, aged, agent, agents, agree, agreed, agreement, agreements, ad, ada, adage, add, added, adder, adept, adepts, aden, admen)
 List(ga, gag, gagged, gage, gaged, gad, gadded, gaea, go, gog, goo, gorge, gorged, gore, gored, goren, gd, ge, geo, george, gee, geed, ger, gere, gem, gems, gen, gene, generic, genre, gent, gents, gene, genet, grog, greg, gregg, gregorio, greed, greer, green, greene, greened, greener, greene, gruff, grunt, grunts, grub)
 List(ogden, ogre, or, ore, oreo, orr, orb, our)
@@ -34,3 +37,4 @@ List(tm, ts, tepee, tepee, ten, tenement, tenements, tenure, tenured, tent, tent
 List(enure, enured, ennui, entente, ebro, ebb, eben, effete)
 List(fe, fen, feb, fee, feet)
 List()
+```
